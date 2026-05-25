@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { ChordLookup } from "@/components/chord-lookup";
 
 export default function Home() {
   return (
@@ -15,15 +17,17 @@ export default function Home() {
 
       {/* Feature Cards */}
       <section className="grid gap-6 grid-cols-1 md:grid-cols-3 max-w-5xl w-full">
-        <Card className="hover:shadow-lg transition">
-          <CardContent className="p-6">
-            <h2 className="text-2xl font-semibold mb-2">Tab Referee</h2>
-            <p className="text-sm text-muted-foreground">
-              Feed any song title and get bullet‑proof chords, tuning &amp; voicings
-              straight from the record.
-            </p>
-          </CardContent>
-        </Card>
+        <Link href="/tab-referee" className="block">
+          <Card className="hover:shadow-lg transition h-full">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold mb-2">Tab Referee</h2>
+              <p className="text-sm text-muted-foreground">
+                Feed any song title and get bullet‑proof chords, tuning &amp; voicings
+                straight from the record.
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
         <Card className="hover:shadow-lg transition">
           <CardContent className="p-6">
             <h2 className="text-2xl font-semibold mb-2">Genre Swapper</h2>
@@ -47,13 +51,7 @@ export default function Home() {
       {/* Try It Now */}
       <section className="w-full max-w-3xl mt-16 mb-24">
         <h2 className="text-3xl font-semibold text-center mb-6">Try it now</h2>
-        <div className="flex gap-4">
-          <Input
-            placeholder="e.g. 'Sweet Child O’ Mine tab'"
-            className="flex-1"
-          />
-          <Button>Go</Button>
-        </div>
+        <ChordLookup />
       </section>
 
       {/* Waitlist / Contact */}
